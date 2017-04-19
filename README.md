@@ -1,5 +1,64 @@
 # MyAction
 
+### 项目搭建
+
+* 安装node、npm、webstorm 
+
+* npm install -g @angular/cli  // 安装angular-cli  
+
+* ng -v  // 查看是否安装成功 
+
+* ng new 项目名称 //创建项目 
+
+* ng server 4.启动项目 
+
+* JQUERY和BOOTSTRAP // 安装第三方库 （见下方）
+
+* ng g component 组件名称  // 安装组件
+
+* ng g service 服务名称（例：shared/product） // 安装服务
+
+* ng g pipe 管道名称  // 安装管道 
+
+### 安装第三方引用（例：jquery 和 bootstrap）
+
+* npm i jquery --save； npm i bootstrap --save
+
+* 在angular-cli.json 文件中修改 script 和 style 属性（其中路径以src为根目录）
+
+```
+
+
+"styles": [
+
+        "styles.css",
+
+        "../node_modules/bootstrap/dist/css/bootstrap.css"
+
+      ],
+
+      "scripts": [
+
+        "../node_modules/jquery/dist/jquery.js",
+
+        "../node_modules/bootstrap/dist/js/bootstrap.js"
+
+      ],
+
+```
+
+* 安装 jquery 和 bootstrap 的类型描述文件到本地库里
+
+> 目的：让 typescript 认识 jquery 和 bootstrap ，在typescript 里能调用 jquery 的东西
+
+```
+
+npm i @types/jquery --save-dev
+
+npm i @types/bootstrap --save-dev
+
+```
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server

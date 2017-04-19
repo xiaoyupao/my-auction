@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import 'rxjs/Rx';
 
 import { ProductService, Product } from '../shared/product.service';
-import { FilterPipe } from '../pipe/filter.pipe';
+// import { FilterPipe } from '../pipe/filter.pipe';
 
 @Component({
   selector: 'app-product',
