@@ -2,7 +2,7 @@
 
 ### 项目搭建
 
-* 安装node、npm、webstorm 
+* 安装node、npm、IDE
 
 * npm install -g @angular/cli  // 安装angular-cli  
 
@@ -52,11 +52,10 @@
 > 目的：让 typescript 认识 jquery 和 bootstrap ，在typescript 里能调用 jquery 的东西
 
 ```
-
+npm i -g typings  // 先安装Typings
+typings --version
 npm i @types/jquery --save-dev
-
 npm i @types/bootstrap --save-dev
-
 ```
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.

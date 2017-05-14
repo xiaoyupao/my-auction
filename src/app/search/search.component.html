@@ -1,16 +1,27 @@
-<form class="searchForm" role="form">
-  <div class="form-group">
+<form [formGroup]="formModel" (ngSubmit)="onSearch()"  novalidate class="searchForm" role="form">
+  <!--当 title字段的 minlength 校验有错误的时候，会往 div上加一个 has-error 样式-->
+  <div class="form-group" [class.has-error]="formModel.hasError('minlength', 'title')">
     <label for="productTitle">商品名称：</label>
-    <input type="text" id="productTitle" placeholder="商品名称" class="form-control"/>
+    <!--用 formControlName 指令把后台 title属性绑一块 -->
+    <input formControlName="title" type="text" id="productTitle" placeholder="商品名称" class="form-control"/>
+    <!--新加一个显示错误信息的 span-->
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength', 'title')">
+      请至少输入3个字
+    </span>
   </div>
-  <div class="form-group">
+  <div class="form-group" [class.has-error]="formModel.hasError('positionNumber', 'price')">
     <label for="productPrice">商品价格：</label>
-    <input type="text" id="productPrice" placeholder="商品价格" class="form-control"/>
+    <input formControlName="price" type="number" id="productPrice" placeholder="商品价格" class="form-control"/>
+    <span class="help-block" [class.hidden]="!formModel.hasError('positionNumber', 'price')">
+      请输入正数
+    </span>
   </div>
   <div class="form-group">
     <label for="productCategory">商品类别：</label>
-    <select id="productCategory" placeholder="商品类别" class="form-control">
-      
+    <!--先跟后台的数据模型绑起来-->
+    <select formControlName="category" id="productCategory" placeholder="商品类别" class="form-control">
+      <option>全部分类</option>
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
     </select>
   </div>
   <div class="form-group">
